@@ -3,6 +3,7 @@ import { pluginReact } from '@rsbuild/plugin-react';
 import {pluginModuleFederation} from '@module-federation/rsbuild-plugin' 
 
 export default defineConfig({
+
   plugins: [
     pluginReact(),
 
@@ -16,7 +17,10 @@ export default defineConfig({
   ],
 
   server: {
-    port: process.env.PORT || 5000
+    port: process.env.PORT || 5000,
+    headers: {
+      'Access-Control-Allow-Origin': '*', 
+    }
   }
 
 });
