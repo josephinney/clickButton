@@ -9,6 +9,7 @@ export default defineConfig({
 
     pluginModuleFederation({
       name: 'producer2',
+      filename: "remoteEntry.js",
       exposes: {
         './UserInterface': './src/UserInterface.jsx',
       },
@@ -16,8 +17,16 @@ export default defineConfig({
     }),
   ],
 
+  output: {
+    distPath: {
+      js: "dist/js",    
+      css: "dist/css",  
+      assets: "dist/assets", 
+    },
+    assetPrefix: "/"
+  },
+
   server: {
-    port: process.env.PORT || 5000,
     headers: {
       'Access-Control-Allow-Origin': '*', 
     }
