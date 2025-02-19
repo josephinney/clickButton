@@ -9,6 +9,7 @@ export default defineConfig({
 
     pluginModuleFederation({
       name: 'producer2',
+      filename: 'remoteEntry.js',
       exposes: {
         './UserInterface': './src/UserInterface.jsx',
       },
