@@ -4,12 +4,13 @@ import {pluginModuleFederation} from '@module-federation/rsbuild-plugin'
 
 export default defineConfig({
 
+  mode: 'production', 
+
   plugins: [
     pluginReact(),
 
     pluginModuleFederation({
       name: 'producer2',
-      filename: "remoteEntry.js",
       exposes: {
         './UserInterface': './src/UserInterface.jsx',
       },
@@ -18,18 +19,11 @@ export default defineConfig({
   ],
 
   output: {
-    distPath: {
-      js: "dist/js",    
-      css: "dist/css",  
-      assets: "dist/assets", 
-    },
-    assetPrefix: "/"
+    assetPrefix: process.env.ASSET_PREFIX || '/'
   },
 
-  server: {
-    headers: {
-      'Access-Control-Allow-Origin': '*', 
-    }
-  }
+  
+
+  
 
 });

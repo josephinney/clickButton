@@ -25,7 +25,7 @@ app.options("*", (req, res) => {
 });
 
 // Servir archivos estáticos con CORS habilitado
-app.use(express.static(path.join(__dirname, "dist"), {
+app.use(express.static(path.join(__dirname, 'dist'), {
     setHeaders: (res) => {
         res.setHeader("Access-Control-Allow-Origin", "*");
     }
